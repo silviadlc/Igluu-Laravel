@@ -39,9 +39,12 @@ class PostController extends Controller
         $post = new Post;
         $post->user_id = 1;
         $post->text = $request->text;
-        $post->image = "image";
+        $path = $request->file("image")->getRealPath();
+        $image = file_get_contents($path);
+        $base64 = base64_encode($image);
+        $post->image = $base64;
         $post->save();
-    
+   
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view ("post.index", ["posts"=>$posts]);
     }
@@ -54,7 +57,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
     }
 
     /**
@@ -88,6 +90,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('post')->with('success','Post deleted successfully!');
     }
 }
