@@ -6,7 +6,7 @@
     <div class="flex flex flex-wrap -mx-2">
     @foreach ($posts as $post)
         <div class="w-1/5 items-center">
-            <img class="shadow rounded w-80" src="data:image/png;base64,{{$post->image}}">
+            <img class="shadow rounded w-80 h-72" src="data:image/png;base64,{{$post->image}}">
             <div class="px-2 py-4">
                 <div class="font-bold text-xl mb-2">{{ $post->text }}</div>
                 <div class="flex space-x-40">

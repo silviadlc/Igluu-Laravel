@@ -4,11 +4,11 @@
 <div style="padding: 20px; width:100%;">
     <form action="/post" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
-        <textarea name="text" rows="10" cols="50">Write something here</textarea>
+        <textarea name="text" class="form-textarea mt-1 block w-80" rows="5" placeholder="Write something here."></textarea>
         <br><br>
         <input type="file" name="image">
         <br><br>
-        <button class="inline-block bg-green-500 hover:bg-white rounded-full px-5 py-1 shadow text-sm font-bold text-white hover:text-green-500 mr-2 mb-2" type="submit">Envia</button>
+        <x-button class="bg-green-500 shadow font-bold text-white hover:text-green-500">Envia</x-button>
     </form>
 </div>
 @endsection
