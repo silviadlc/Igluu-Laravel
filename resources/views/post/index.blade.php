@@ -5,11 +5,11 @@
 <div class="px-20">
     <div class="flex flex flex-wrap -mx-2">
     @foreach ($posts as $post)
-        <div class="w-1/5 px-2">
-            <img class="shadow rounded" src="data:image/png;base64,{{$post->image}}" style="max-width: 300px">
-            <div class="px-6 py-4">
+        <div class="w-1/5 items-center">
+            <img class="shadow rounded w-80" src="data:image/png;base64,{{$post->image}}">
+            <div class="px-2 py-4">
                 <div class="font-bold text-xl mb-2">{{ $post->text }}</div>
-                <div class="flex space-x-32">
+                <div class="flex space-x-40">
                     <p class="text-gray-700 text-base">By: {{$post->user->name}}</p>
                     <form action="post/{{$post->id}}" method="post">
                         {{ csrf_field() }}
